@@ -4,6 +4,11 @@ en:
   header_link1: "Home"
   header_link2: "Help"
   header_link3: "Log in"
+  header_users_link: "Users"
+  header_profile_link: "Profile"
+  header_settings_link: "Settings"
+  header_logout_link: "Log out"
+  account_text: "Account"
   footer_content1: "The "
   footer_link1: "Ruby on Rails Tutorial"
   footer_content2: "by "
@@ -56,3 +61,14 @@ en:
       label_password: "Password"
       label_password_confirm: "Confirmation"
       btn_create_acc: "Create my account"
+  sessions:
+    new:
+      title: "Log in"
+      header: "Log in"
+      submit_btn: "Log in"
+      content1: "New user? "
+      link1: "Sign up now!"
+      label_email: "Email"
+      label_password: "Password"
+    create:
+      invalid_login_message: "Invalid email/password combination"

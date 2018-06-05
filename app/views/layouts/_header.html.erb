@@ -5,7 +5,24 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t("header_link1"), root_path %></li>
         <li><%= link_to t("header_link2"), help_path %></li>
-        <li><%= link_to t("header_link3"), "#" %></li>
+        <% if logged_in? %>
+          <li><%= link_to t("header_users_link"), "#" %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= t("account_text") %> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to t("header_profile_link"), current_user %></li>
+              <li><%= link_to t("header_settings_link"), "#" %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to t("header_logout_link"), logout_path, method: :delete %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to t("header_link3"), login_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
