@@ -1,14 +1,25 @@
 en:
   hello: "Hello world"
   main_title: "Ruby on Rails Tutorial Sample App"
+  header_link1: "Home"
+  header_link2: "Help"
+  header_link3: "Log in"
+  footer_content1: "The "
+  footer_link1: "Ruby on Rails Tutorial"
+  footer_content2: "by "
+  footer_link2: "Michael Hartl"
+  footer_link3: "About"
+  footer_link4: "Contact"
+  footer_link5: "News"
   static_pages:
     home:
-      header: "Sample App"
+      header: "Welcome to the Sample App"
       title: "Home"
       content1: "This is the home page for the"
-      link1: "http://www.railstutorial.org/"
-      content2: "Ruby on Rails Tutorial"
-      content3: "sample application."
+      link1: "Ruby on Rails Tutorial"
+      content2: "sample application."
+      link2: "Sign up now!"
+      logo_alt: "Rails logo"
     help:
       title: "Help"
       header: "Help"
@@ -33,3 +44,8 @@ en:
       header: "Contact"
       content1: "Contact the Ruby on Rails Tutorial about the sample app at the "
       link1: "contact page"
+  users:
+    new:
+      title: "Sign up"
+      header: "Sign up"
+      content1: "This will be a signup page for new users."
