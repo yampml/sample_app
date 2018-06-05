@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
+  attr_accessor :remember_token
+
   validates :name, presence: true, length: {maximum: Settings.name_max_length}
   validates :email, presence: true, length: {maximum: Settings.email_max_length},
     format: {with: VALID_EMAIL_REGEX},
@@ -19,5 +21,27 @@ class User < ApplicationRecord
              BCrypt::Engine.cost
            end
     BCrypt::Password.create(string, cost: cost)
+  end
+
+  # Returns a random token
+  def self.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  # Remembers a user in the database for use in persistent sessions.
+  def remember
+    self.remember_token = User.new_token
+    update_attributes remember_digest: User.digest(remember_token)
+  end
+
+  # Returns true if the given token matches the digest.
+  def authenticated? remember_token
+    return false if remember_digest.nil?
+    Bcrypt::Password.new(remember_digest).is_password? remember_token
+  end
+
+  # Forgets a user.
+  def forget
+    update_attributes remember_digest: nil
   end
 end

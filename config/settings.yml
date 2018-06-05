@@ -1,3 +1,4 @@
 name_max_length: 50
 email_max_length: 255
 pass_min_length: 6
+check_box_ok: "1"
