@@ -13,6 +13,7 @@ gem "bootstrap-sass", "3.3.7"
 gem "bcrypt", "3.1.12"
 gem "config"
 
+
 group :development, :test do
   gem "sqlite3", "1.3.13"
   gem "byebug", "9.0.6", platform: :mri

@@ -7,7 +7,7 @@ class User < ApplicationRecord
     uniqueness: {case_sensitive: false}
   validates :password, presence: true, length: {minimum: Settings.pass_min_length}
 
-  before_save{email.downcase!}
+  before_save{self.email = email.downcase}
 
   has_secure_password
 end
