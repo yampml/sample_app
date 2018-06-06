@@ -10,6 +10,8 @@ gem "turbolinks", "5.0.1"
 gem "jbuilder", "2.7.0"
 gem "rubocop", "~>0.49.1", require: false
 gem "bootstrap-sass", "3.3.7"
+gem "bcrypt", "3.1.12"
+gem "config"
 
 group :development, :test do
   gem "sqlite3", "1.3.13"
