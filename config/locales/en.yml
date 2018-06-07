@@ -70,5 +70,8 @@ en:
       link1: "Sign up now!"
       label_email: "Email"
       label_password: "Password"
+      remember_content: "Remember me on this computer"
     create:
       invalid_login_message: "Invalid email/password combination"
+      label_checkbox_remember: "Remember me"
+
