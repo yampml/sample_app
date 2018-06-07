@@ -51,6 +51,14 @@ en:
       link1: "contact page"
   users:
     welcome: "Welcome to the Sample App!"
+    profile_updated_msg: "Profile updated"
+    require_loggedin_msg: "Please log in."
+    index:
+      title: "All users"
+      header: "All users"
+      link_delete: "delete"
+      confirm_delete_msg: "You sure?"
+      vertical_bar: " | "
     new:
       title: "Sign up"
       header: "Sign up"
@@ -61,6 +69,18 @@ en:
       label_password: "Password"
       label_password_confirm: "Confirmation"
       btn_create_acc: "Create my account"
+    edit:
+      title: "Edit user"
+      header: "Upadte your profile"
+      label_name: "Name"
+      label_email: "Email"
+      label_password: "Password"
+      label_password_confirm: "Confirmation"
+      btn_update_acc: "Save changes"
+      link_change_gravatar: "Change"
+    destroy:
+      user_deleted_msg: "User deleted"
+      user_delete_err_msg: "Are you trying to delete the void?"
   sessions:
     new:
       title: "Log in"
@@ -74,4 +94,5 @@ en:
     create:
       invalid_login_message: "Invalid email/password combination"
       label_checkbox_remember: "Remember me"
+
 
