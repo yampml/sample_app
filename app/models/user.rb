@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :activation_token
 
   validates :name, presence: true, length: {maximum: Settings.name_max_length}
   validates :email, presence: true, length: {maximum: Settings.email_max_length},
@@ -10,7 +10,8 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {minimum: Settings.pass_min_length},
     allow_nil: true
 
-  before_save{self.email = email.downcase}
+  before_create :create_activation_digest
+  before_save :downcase_email
 
   has_secure_password
 
@@ -36,13 +37,37 @@ class User < ApplicationRecord
   end
 
   # Returns true if the given token matches the digest.
-  def authenticated? remember_token
-    return false if remember_digest.nil?
-    Bcrypt::Password.new(remember_digest).is_password? remember_token
+  def authenticated? attribute, token
+    digest = send "#{attribute}_digest"
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password? token
   end
 
   # Forgets a user.
   def forget
     update_attributes remember_digest: nil
+  end
+
+  # Activates an account.
+  def activate
+    update_attributes activated: true, activated_at: Time.zone.now
+  end
+
+  # Sends activation email.
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
+  private
+
+  # Converts email to all lower-case.
+  def downcase_email
+    self.email = email.downcase
+  end
+
+  # Creates and assigns the activation token and digest.
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest activation_token
   end
 end

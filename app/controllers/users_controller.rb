@@ -8,8 +8,7 @@ class UsersController < ApplicationController
     @users = User.paginate page: params[:page]
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @user = User.new
@@ -18,20 +17,19 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      log_in @user
-      flash[:success] = t "users.welcome"
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = t ".check_email_msg"
+      redirect_to root_url
     else
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update_attributes user_params
-      flash[:success] = t ".users.profile_updated_msg"
+      flash[:success] = t ".profile_updated_msg"
       redirect_to @user
     else
       render :edit
@@ -39,11 +37,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if @user.destroy
-      flash[:success] = t ".user_deleted_msg"
-    else
-      flash[:success] = t ".user_delete_err_msg"
-    end
+    flash[:success] = if @user.destroy
+                        t ".user_deleted_msg"
+                      else
+                        t ".user_delete_err_msg"
+                      end
     redirect_to users_url
   end
 

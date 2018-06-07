@@ -51,7 +51,6 @@ en:
       link1: "contact page"
   users:
     welcome: "Welcome to the Sample App!"
-    profile_updated_msg: "Profile updated"
     require_loggedin_msg: "Please log in."
     index:
       title: "All users"
@@ -69,6 +68,8 @@ en:
       label_password: "Password"
       label_password_confirm: "Confirmation"
       btn_create_acc: "Create my account"
+    create:
+      check_email_msg: "Please check your email to activate your account."
     edit:
       title: "Edit user"
       header: "Upadte your profile"
@@ -78,6 +79,8 @@ en:
       label_password_confirm: "Confirmation"
       btn_update_acc: "Save changes"
       link_change_gravatar: "Change"
+    update:
+      profile_updated_msg: "Profile updated"
     destroy:
       user_deleted_msg: "User deleted"
       user_delete_err_msg: "Are you trying to delete the void?"
@@ -94,5 +97,14 @@ en:
     create:
       invalid_login_message: "Invalid email/password combination"
       label_checkbox_remember: "Remember me"
-
-
+  user_mailer:
+    account_activation:
+      html_header: "Sample App"
+      subject: "Account activation"
+      email_hi: "Hi %{user_name}"
+      text_welcome: "Welcome to the Sample App! Click on the link below to activate your account:"
+      link_activate: "Activate"
+  account_activations:
+    edit:
+      acc_activated_msg: "Account activated!"
+      acc_activate_err_msg: "Invalid activation link"
