@@ -19,12 +19,18 @@ en:
   static_pages:
     home:
       header: "Welcome to the Sample App"
+      micropost_feed_header: "Micropost Feed"
       title: "Home"
       content1: "This is the home page for the"
       link1: "Ruby on Rails Tutorial"
       content2: "sample application."
       link2: "Sign up now!"
       logo_alt: "Rails logo"
+      view_profile_link: "view my profile"
+      txt_mircopost: "micropost"
+      micropost_txt_area_placeholder: "Compose new micropost..."
+      post_submit_btn: "Post"
+      file_size_limit_msg: "Maximum file size is 5MB. Please choose a smaller file."
     help:
       title: "Help"
       header: "Help"
@@ -84,6 +90,8 @@ en:
     destroy:
       user_deleted_msg: "User deleted"
       user_delete_err_msg: "Are you trying to delete the void?"
+    show:
+      micropost_header: "Microposts (%{size})"
   sessions:
     new:
       title: "Log in"
@@ -136,3 +144,12 @@ your password will stay as it is."
       pwd_empty_err: "can't be empty"
       pwd_reset_success_msg: "Password has been reset."
       pwd_link_expired: "Password reset has expired."
+  microposts:
+    txt_posted_ago: "Posted %{time_at} ago"
+    micropost_delete_confirm_msg: "You sure?"
+    picture_size_err: "should be less than 5MB"
+    create:
+      create_success_msg: "Micropost created!"
+    destroy:
+      delete_success_msg: "Micropost deleted"
+      delete_failed_msg: "Micropost not found"
