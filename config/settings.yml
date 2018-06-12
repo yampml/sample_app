@@ -5,3 +5,6 @@ check_box_ok: "1"
 gravatar_default_size: 80
 gravatar_preferred_size: 50
 pwd_reset_expired_time: 2
+micropost_max_length: 140
+picture_max_size: 5
+accepted_image_type: "image/jpeg,image/gif,image/png"
