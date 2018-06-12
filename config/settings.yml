@@ -4,6 +4,7 @@ pass_min_length: 6
 check_box_ok: "1"
 gravatar_default_size: 80
 gravatar_preferred_size: 50
+gravatar_mini_size: 30
 pwd_reset_expired_time: 2
 micropost_max_length: 140
 picture_max_size: 5
