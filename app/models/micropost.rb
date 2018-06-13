@@ -5,6 +5,7 @@ class Micropost < ApplicationRecord
   validates :content, presence: true, length: {maximum: Settings.micropost_max_length}
   validate  :picture_size
   scope :newest, ->{order(created_at: :desc)}
+  scope :feed_posts, ->(following_ids, id){where "user_id IN (?) OR user_id = ?", following_ids, id}
   mount_uploader :picture, PictureUploader
 
   private

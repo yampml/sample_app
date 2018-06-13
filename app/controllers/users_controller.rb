@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   before_action :load_user, except: %i(index new create)
 
   def index
+    byebug
     @users = User.paginate page: params[:page]
   end
 
@@ -45,6 +46,18 @@ class UsersController < ApplicationController
                         t ".user_delete_err_msg"
                       end
     redirect_to users_url
+  end
+
+  def following
+    @title = t ".txt_following"
+    @users = @user.following.paginate page: params[:page]
+    render :show_follow
+  end
+
+  def followers
+    @title = t ".txt_followers"
+    @users = @user.followers.paginate page: params[:page]
+    render :show_follow
   end
 
   private
